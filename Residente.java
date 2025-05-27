@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 import java.time.Duration;
 
-public class Residente extends Vehiculo{
+public class Residente extends Vehiculo implements ReinicioMensual{
     public static final double PRECIO_POR_MINUTO = 0.002;
     private double tiempoAcumulado;
 
@@ -18,7 +18,7 @@ public class Residente extends Vehiculo{
         tiempoAcumulado += (int)minutosTranscurridos;
 	}
     
-    private void reiniciarTiempoAcumulado(){
+    public void comienzaMes(){
         tiempoAcumulado = 0;
     }
 

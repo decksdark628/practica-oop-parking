@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Oficial extends Vehiculo{
+public class Oficial extends Vehiculo implements ReinicioMensual{
     private ArrayList<Estancia> estancias = new ArrayList<>();
     
     public Oficial(String placa){
@@ -15,7 +15,7 @@ public class Oficial extends Vehiculo{
         estancias.add(estancia);
     }
 
-    private void reiniciarEstancias(){
+    public void comienzaMes(){
         estancias.clear();
     }
 
