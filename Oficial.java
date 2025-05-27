@@ -1,8 +1,7 @@
-import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Oficial extends Vehiculo{
-    private ArrayList<LocalTime> estancias = new ArrayList<>();
+    private ArrayList<Estancia> estancias = new ArrayList<>();
     
     public Oficial(String placa){
         super(placa);
@@ -10,5 +9,13 @@ public class Oficial extends Vehiculo{
 
     private void reiniciarEstancias(){
         estancias.clear();
+    }
+
+    public ArrayList<Estancia> getEstancias() {
+        return this.estancias;
+    }
+
+    public void setEstancias(ArrayList<Estancia> estancias) {
+        this.estancias = estancias;
     }
 }

@@ -4,7 +4,7 @@ public abstract class Vehiculo{
     private String placa;
     private LocalTime ultimoIngreso;
 
-    public Vehiculo(String placa) {
+    public Vehiculo(String placa){
         this.placa = placa;
     }
 
