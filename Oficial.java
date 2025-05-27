@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Oficial extends Vehiculo{
@@ -5,6 +6,13 @@ public class Oficial extends Vehiculo{
     
     public Oficial(String placa){
         super(placa);
+    }
+
+    public void registrarSalida(){
+        LocalDateTime ingreso = super.getUltimoIngreso();
+        LocalDateTime salida = LocalDateTime.now();
+        Estancia estancia = new Estancia(ingreso, salida);
+        estancias.add(estancia);
     }
 
     private void reiniciarEstancias(){

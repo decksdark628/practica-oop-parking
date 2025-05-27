@@ -2,7 +2,6 @@ import java.util.HashMap;
 
 public class Parking{
     private HashMap<String, Vehiculo> vehiculos = new HashMap<>();
-    private static GestorEntradasSalidas gestorEntSal;
 
     public Parking(HashMap vehiculos){
         this.vehiculos = vehiculos;
@@ -12,14 +11,14 @@ public class Parking{
         Vehiculo v = buscarVehiculo(placa);
         if (v == null)
             registrarVehiculo(placa);
-        gestorEntSal.registrarEntradaVehicExistente(v);
+        v.registrarUltimoIngreso();
     }
     
     public boolean registrarSalida(String placa){
         boolean conf = false;
         Vehiculo v = buscarVehiculo(placa);
         if (v != null){
-            gestorEntSal.registrarSalida(v);
+            v.registrarSalida();
             conf = true;
         }
         return conf;        

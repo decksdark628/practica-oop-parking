@@ -1,27 +1,27 @@
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public class Estancia{
-    LocalTime entrada;
-    LocalTime salida;
+    LocalDateTime entrada;
+    LocalDateTime salida;
 
-    public Estancia(LocalTime e, LocalTime s){
+    public Estancia(LocalDateTime e, LocalDateTime s){
         entrada = e;
         salida = s;
     }
     
-    public LocalTime getEntrada() {
+    public LocalDateTime getEntrada() {
         return this.entrada;
     }
 
-    public void setEntrada(LocalTime entrada) {
+    public void setEntrada(LocalDateTime entrada) {
         this.entrada = entrada;
     }
 
-    public LocalTime getSalida() {
+    public LocalDateTime getSalida() {
         return this.salida;
     }
 
-    public void setSalida(LocalTime salida) {
+    public void setSalida(LocalDateTime salida) {
         this.salida = salida;
     }    
 }

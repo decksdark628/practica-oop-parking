@@ -1,12 +1,19 @@
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public abstract class Vehiculo{
     private String placa;
-    private LocalTime ultimoIngreso;
+    private LocalDateTime ultimoIngreso;
 
     public Vehiculo(String placa){
         this.placa = placa;
     }
+
+    public void registrarUltimoIngreso(){
+        LocalDateTime time = LocalDateTime.now();
+        ultimoIngreso = time;
+    }
+
+    public abstract void registrarSalida();
 
     public String getPlaca() {
         return this.placa;
@@ -16,11 +23,11 @@ public abstract class Vehiculo{
         this.placa = placa;
     }
 
-    public LocalTime getUltimoIngreso() {
+    public LocalDateTime getUltimoIngreso() {
         return this.ultimoIngreso;
     }
 
-    public void setUltimaEntrada(LocalTime ultimoIngreso) {
+    public void setUltimaEntrada(LocalDateTime ultimoIngreso) {
         this.ultimoIngreso = ultimoIngreso;
     }
 
