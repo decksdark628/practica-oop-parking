@@ -1,7 +1,9 @@
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Parking{
     private HashMap<String, Vehiculo> vehiculos = new HashMap<>();
+    private static GeneradorInformes genInf;
 
     public Parking(HashMap<String, Vehiculo> vehiculos){
         this.vehiculos = vehiculos;
@@ -49,6 +51,19 @@ public class Parking{
             }
         }
     }
+
+    public void generarInformeResidentes(){
+        ArrayList<Residente> lista = new ArrayList<>();
+        for (Vehiculo v : vehiculos.values()){
+            if (v instanceof Residente){
+                Residente r = (Residente)v;
+                lista.add(r);
+            }
+        }
+        genInf = new GeneradorInformes();
+        genInf.generarInformeResidentes(lista);
+    }
+
 
     private Vehiculo buscarVehiculo(String placa){
         return vehiculos.get(placa);

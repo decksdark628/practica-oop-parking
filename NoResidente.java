@@ -12,12 +12,16 @@ public class NoResidente extends Vehiculo implements PagaAlSalir{
     public void registrarSalida(){
 		LocalDateTime ingreso = super.getUltimoIngreso();
         LocalDateTime salida = LocalDateTime.now();
-
-        long minutosTranscurridos = Duration.between(ingreso, salida).toMinutes();
+        
+        long minutosTranscurridos = calcularDuracion(ingreso, salida);
 
         precioAPagar = (int)minutosTranscurridos * PRECIO_POR_MINUTO;
         super.setUltimaEntrada(null);
 	}
+
+    public long calcularDuracion(LocalDateTime ingreso, LocalDateTime salida){
+        return Duration.between(ingreso, salida).toMinutes();
+    }
 
     public double getPrecioAPagar() {
         return this.precioAPagar;
