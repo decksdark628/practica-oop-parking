@@ -1,9 +1,9 @@
 import java.time.LocalDateTime;
 import java.time.Duration;
 
-public class NoResidente extends Vehiculo{
+public class NoResidente extends Vehiculo implements PagaAlSalir{
     public static final double PRECIO_POR_MINUTO = 0.02;
-    private double tiempoAcumulado;
+    private double precioAPagar;
 
     public NoResidente(String placa){
         super(placa);
@@ -15,11 +15,15 @@ public class NoResidente extends Vehiculo{
 
         long minutosTranscurridos = Duration.between(ingreso, salida).toMinutes();
 
-        tiempoAcumulado = (int)minutosTranscurridos;
+        precioAPagar = (int)minutosTranscurridos * PRECIO_POR_MINUTO;
+        super.setUltimaEntrada(null);
 	}
-    
-    private void reiniciarTiempoAcumulado(){
-        tiempoAcumulado = 0;
+
+    public double getPrecioAPagar() {
+        return this.precioAPagar;
     }
-    
+
+    public void setPrecioAPagar(double precioAPagar) {
+        this.precioAPagar = precioAPagar;
+    }
 }
